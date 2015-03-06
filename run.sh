@@ -6,7 +6,7 @@ name=${2:-aptiwan.com}
 if [ ! -e "/certs/$name.pem" ]
 then
     echo "Generating new cert for $name"
-    openssl req -new -x509 -subj /C=FR/O=aptiwan/CN=$name -newkey rsa:1024 -days 365 -nodes -keyout /certs/$name.pem -out /certs/$name.crt
+    openssl req -new -x509 -subj /CN=$name -newkey rsa:1024 -days 365 -nodes -keyout /certs/$name.pem -out /certs/$name.crt
 fi
 
 case "$mode" in
