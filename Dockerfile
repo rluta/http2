@@ -32,6 +32,7 @@ RUN apt-get install -y  \
         ruby           \
         bison          \
         cmake          \
+        squid3          \
      && apt-get clean   \
      && apt-get autoclean \
      && apt-get remove     
@@ -103,3 +104,5 @@ RUN cd nginx && \
 RUN cd httpd && \
     PKG_CONFIG_PATH=/usr/local/lib/pkgconfig ./configure --enable-modules-shared=all --enable-mpms-shared="worker event" --with-included-apr && \
     make && make install && make clean && ldconfig
+
+ADD run.sh /usr/local/bin/
